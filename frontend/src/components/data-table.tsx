@@ -15,21 +15,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Input } from "./ui/input";
-import SelectFilters from "./companies/select-filters";
+
+import type { FiltersProps } from "@/types/api-type";
+import TopFilters from "./companies/top-filters";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
-  onNextPage?: () => void;
-  onPreviousPage?: () => void;
-  hasNextPage?: boolean;
-  hasPreviousPage?: boolean;
-  totalPages?: number;
-  currentPage?: number;
-  onSearchChange?: (value: string) => void;
-  searchValue?: string;
-  isLoading?: boolean;
 }
 
 export function DataTable<TData, TValue>({
@@ -42,9 +34,7 @@ export function DataTable<TData, TValue>({
   totalPages,
   isLoading,
   currentPage,
-  searchValue,
-  onSearchChange,
-}: Readonly<DataTableProps<TData, TValue>>) {
+}: Readonly<DataTableProps<TData, TValue>> & Readonly<FiltersProps>) {
   const table = useReactTable({
     data,
     columns,
@@ -53,18 +43,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="flex flex-col sm:flex-row sm:items-center py-4 gap-4 sm:justify-between ">
-        <Input
-          placeholder="Filter names and locations..."
-          value={searchValue}
-          onChange={(e) => {
-            onSearchChange?.(e.target.value);
-          }}
-          className="max-w-sm"
-        />
-
-        <SelectFilters />
-      </div>
+      <TopFilters />
       <div className="overflow-hidden rounded-md border">
         <Table>
           <TableHeader>
