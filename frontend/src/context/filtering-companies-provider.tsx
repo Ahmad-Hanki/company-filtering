@@ -19,7 +19,7 @@ export const FilteringCompaniesProvider = ({
     setFilters(defaultFilters);
   };
 
-  // Memoize the context value to prevent unnecessary re-renders
+  // Memoize the context value to prevent unnecessary re renders
   const value = useMemo(
     () => ({ filters, updateFilters, resetFilters }),
     [filters] // Only recreate when filters change

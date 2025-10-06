@@ -3,9 +3,11 @@ import { FilteringCompaniesProvider } from "./context/filtering-companies-provid
 
 function App() {
   return (
-    <FilteringCompaniesProvider>
-      <Companies />
-    </FilteringCompaniesProvider>
+    <div className="px-4">
+      <FilteringCompaniesProvider>
+        <Companies />
+      </FilteringCompaniesProvider>
+    </div>
   );
 }
 

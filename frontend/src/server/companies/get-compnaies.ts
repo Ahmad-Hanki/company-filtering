@@ -1,7 +1,7 @@
-import type { CompanyFilters } from "@/context/types-and-defaults";
+import type { Company, PaginatedResponse } from "@/types/api-type";
 import apiClient from "@/lib/api-client";
+import type { CompanyFilters } from "@/context/types-and-defaults";
 import type { QueryConfig } from "@/lib/queryClient";
-import type { Company } from "@/types/api-type";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 
 export interface GetCompaniesProps {
@@ -11,12 +11,9 @@ export interface GetCompaniesProps {
 
 export const getCompanies = async ({
   filters,
-}: GetCompaniesProps): Promise<{
-  data: Company[] | null;
-}> => {
+}: GetCompaniesProps): Promise<PaginatedResponse<Company>> => {
   const response = await apiClient.get("/companies", { params: filters });
-  const data = await response.data;
-  return data;
+  return response.data;
 };
 
 export const getCompaniesQueryOptions = ({ filters }: GetCompaniesProps) => {
@@ -31,7 +28,7 @@ export const useCompanies = ({
   filters,
 }: GetCompaniesProps = {}) => {
   return useQuery({
-    ...getCompaniesQueryOptions({ filters: filters }),
+    ...getCompaniesQueryOptions({ filters }),
     ...queryConfig,
   });
 };

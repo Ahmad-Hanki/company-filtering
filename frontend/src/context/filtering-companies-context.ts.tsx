@@ -1,4 +1,3 @@
-// FilteringCompaniesContext.ts
 import { createContext, useContext } from "react";
 import { defaultFilters, type CompanyFilters } from "./types-and-defaults";
 
@@ -15,7 +14,6 @@ export const FilteringCompaniesContext =
     resetFilters: () => {},
   });
 
-// Custom hook
 export const useFilteringCompanies = (): FilteringCompaniesContextType => {
   return useContext(FilteringCompaniesContext);
 };
