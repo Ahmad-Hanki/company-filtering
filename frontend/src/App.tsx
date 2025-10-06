@@ -1,5 +1,12 @@
+import Companies from "./components/companies";
+import { FilteringCompaniesProvider } from "./context/filtering-companies-provider";
+
 function App() {
-  return <div className="bg-red-600">d</div>;
+  return (
+    <FilteringCompaniesProvider>
+      <Companies />
+    </FilteringCompaniesProvider>
+  );
 }
 
 export default App;
