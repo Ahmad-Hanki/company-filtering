@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id        String   @id @default(cuid())
+  name      String // search input
+  industry  String // e.g., Technology, Finance, Healthcare ...
+  location  String // search input
+  size      String // small, medium, large
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

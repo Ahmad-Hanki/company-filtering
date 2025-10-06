@@ -10,8 +10,8 @@ interface Config {
 
 const config: Config = {
   port: Number(process.env.PORT) || 3000,
-  nodeEnv: process.env.NODE_ENV || "development",
-  dbUri: process.env.DB_URI,
+  nodeEnv: process.env.NODE_ENV || 'development',
+  dbUri: process.env.DATABASE_URL,
 };
 
 export default config;
