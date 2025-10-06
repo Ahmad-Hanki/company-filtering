@@ -1,5 +1,5 @@
 import type { CompanyFilters } from "@/context/types-and-defaults";
-import { api } from "@/lib/api-client";
+import apiClient from "@/lib/api-client";
 import type { QueryConfig } from "@/lib/queryClient";
 import type { Company } from "@/types/api-type";
 import { queryOptions, useQuery } from "@tanstack/react-query";
@@ -14,7 +14,7 @@ export const getCompanies = async ({
 }: GetCompaniesProps): Promise<{
   data: Company[] | null;
 }> => {
-  const response = await api.get("/companies", { params: filters });
+  const response = await apiClient.get("/companies", { params: filters });
   const data = await response.data;
   return data;
 };
