@@ -3,6 +3,8 @@ export type CompanyFilters = {
   location: string;
   industry: string;
   size: string;
+  page?: number;
+  per_page?: number;
 };
 
 export const defaultFilters: CompanyFilters = {
@@ -10,4 +12,6 @@ export const defaultFilters: CompanyFilters = {
   location: "",
   industry: "",
   size: "",
+  page: 1,
+  per_page: 10,
 };

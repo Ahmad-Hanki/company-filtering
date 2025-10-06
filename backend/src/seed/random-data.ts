@@ -5,51 +5,51 @@ const generateHardcodedData = async () => {
     await prisma.company.createMany({
       data: [
         {
-          name: 'TechNova',
-          industry: 'Technology',
-          location: 'San Francisco, USA',
-          size: 'large',
-        },
-        {
-          name: 'FinEdge',
-          industry: 'Finance',
-          location: 'New York, USA',
+          name: 'GreenWave',
+          industry: 'Renewable Energy',
+          location: 'Oslo, Norway',
           size: 'medium',
         },
         {
-          name: 'MediLife',
+          name: 'ByteCrafters',
+          industry: 'Software Development',
+          location: 'Austin, USA',
+          size: 'small',
+        },
+        {
+          name: 'HealthBridge',
           industry: 'Healthcare',
-          location: 'London, UK',
+          location: 'Munich, Germany',
           size: 'large',
         },
         {
-          name: 'EcoBuild',
-          industry: 'Construction',
-          location: 'Berlin, Germany',
+          name: 'UrbanTaste',
+          industry: 'Food & Beverage',
+          location: 'Tokyo, Japan',
           size: 'medium',
         },
         {
-          name: 'EduSpark',
-          industry: 'Education',
+          name: 'EduVision',
+          industry: 'Education Technology',
           location: 'Toronto, Canada',
           size: 'small',
         },
         {
-          name: 'AgriGrow',
+          name: 'AgroNext',
           industry: 'Agriculture',
-          location: 'Sydney, Australia',
+          location: 'Buenos Aires, Argentina',
           size: 'medium',
         },
         {
-          name: 'RetailX',
-          industry: 'Retail',
-          location: 'Dubai, UAE',
+          name: 'SkyLogix',
+          industry: 'Logistics',
+          location: 'Singapore',
           size: 'large',
         },
         {
-          name: 'TravelMate',
-          industry: 'Travel',
-          location: 'Paris, France',
+          name: 'TravelSphere',
+          industry: 'Tourism',
+          location: 'Barcelona, Spain',
           size: 'small',
         },
       ],
@@ -64,5 +64,4 @@ const generateHardcodedData = async () => {
   }
 };
 
-// Run the function (if this file is standalone)
 generateHardcodedData();
