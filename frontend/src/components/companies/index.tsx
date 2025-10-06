@@ -35,6 +35,7 @@ const Companies = () => {
       <Header title="Companies" description="List of all companies" />
       <DataTable
         columns={columns}
+        isLoading={isPending}
         data={data?.data ?? []}
         onNextPage={onNextPage}
         onPreviousPage={onPreviousPage}

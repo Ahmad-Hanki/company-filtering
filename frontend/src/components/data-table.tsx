@@ -16,6 +16,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Input } from "./ui/input";
+import SelectFilters from "./companies/select-filters";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -28,6 +29,7 @@ interface DataTableProps<TData, TValue> {
   currentPage?: number;
   onSearchChange?: (value: string) => void;
   searchValue?: string;
+  isLoading?: boolean;
 }
 
 export function DataTable<TData, TValue>({
@@ -38,6 +40,7 @@ export function DataTable<TData, TValue>({
   hasNextPage,
   hasPreviousPage,
   totalPages,
+  isLoading,
   currentPage,
   searchValue,
   onSearchChange,
@@ -50,7 +53,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="flex items-center py-4">
+      <div className="flex flex-col sm:flex-row sm:items-center py-4 gap-4 sm:justify-between ">
         <Input
           placeholder="Filter names and locations..."
           value={searchValue}
@@ -59,6 +62,8 @@ export function DataTable<TData, TValue>({
           }}
           className="max-w-sm"
         />
+
+        <SelectFilters />
       </div>
       <div className="overflow-hidden rounded-md border">
         <Table>
@@ -103,7 +108,7 @@ export function DataTable<TData, TValue>({
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No results.
+                  {isLoading ? "Loading..." : "No results."}
                 </TableCell>
               </TableRow>
             )}
